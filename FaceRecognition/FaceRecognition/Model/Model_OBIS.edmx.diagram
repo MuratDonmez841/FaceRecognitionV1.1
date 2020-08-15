@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="955e12dfc8694742ba72fb0146af03be" Name="Diagram1">
+        <EntityTypeShape EntityType="DBOBISModel.T_DERS" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBOBISModel.T_KEY" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBOBISModel.T_OGR" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <AssociationConnector Association="DBOBISModel.FK__T_KEY__DERS_KODU__182C9B23" ManuallyRouted="false" />
+        <AssociationConnector Association="DBOBISModel.FK__T_KEY__OGR_OKULN__173876EA" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

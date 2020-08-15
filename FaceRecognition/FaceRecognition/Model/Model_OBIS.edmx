@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBOBISModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="T_DERS">
+          <Key>
+            <PropertyRef Name="DERS_KODU" />
+          </Key>
+          <Property Name="DERS_KODU" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="DERS_ISMI" Type="nchar" MaxLength="100" />
+          <Property Name="DERS_AKADEMİSYENI" Type="nchar" MaxLength="100" />
+          <Property Name="DERS_BLOCK" Type="nchar" MaxLength="10" />
+          <Property Name="DERS_SINIF_KOD" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="T_KEY">
+          <Key>
+            <PropertyRef Name="Num" />
+          </Key>
+          <Property Name="Num" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OGR_OKULNU" Type="bigint" />
+          <Property Name="DERS_KODU" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="T_OGR">
+          <Key>
+            <PropertyRef Name="OGR_TC" />
+          </Key>
+          <Property Name="OGR_TC" Type="bigint" Nullable="false" />
+          <Property Name="OGR_OKULNU" Type="bigint" Nullable="false" />
+          <Property Name="OGR_ISIM" Type="nchar" MaxLength="100" />
+          <Property Name="OGR_DOGUMT" Type="nchar" MaxLength="100" />
+          <Property Name="OGR_BOLUM" Type="nchar" MaxLength="100" />
+          <Property Name="OGR_FAKULTE" Type="nchar" MaxLength="100" />
+          <Property Name="OGR_CINSIYET" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK__T_KEY__DERS_KODU__182C9B23">
+          <End Role="T_DERS" Type="Self.T_DERS" Multiplicity="0..1" />
+          <End Role="T_KEY" Type="Self.T_KEY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_DERS">
+              <PropertyRef Name="DERS_KODU" />
+            </Principal>
+            <Dependent Role="T_KEY">
+              <PropertyRef Name="DERS_KODU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_KEY__OGR_OKULN__173876EA">
+          <End Role="T_OGR" Type="Self.T_OGR" Multiplicity="0..1" />
+          <End Role="T_KEY" Type="Self.T_KEY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_OGR">
+              <PropertyRef Name="OGR_TC" />
+            </Principal>
+            <Dependent Role="T_KEY">
+              <PropertyRef Name="OGR_OKULNU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBOBISModelStoreContainer">
+          <EntitySet Name="T_DERS" EntityType="Self.T_DERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_KEY" EntityType="Self.T_KEY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_OGR" EntityType="Self.T_OGR" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__T_KEY__DERS_KODU__182C9B23" Association="Self.FK__T_KEY__DERS_KODU__182C9B23">
+            <End Role="T_DERS" EntitySet="T_DERS" />
+            <End Role="T_KEY" EntitySet="T_KEY" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_KEY__OGR_OKULN__173876EA" Association="Self.FK__T_KEY__OGR_OKULN__173876EA">
+            <End Role="T_OGR" EntitySet="T_OGR" />
+            <End Role="T_KEY" EntitySet="T_KEY" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBOBISModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="T_DERS">
+          <Key>
+            <PropertyRef Name="DERS_KODU" />
+          </Key>
+          <Property Name="DERS_KODU" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="DERS_ISMI" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="DERS_AKADEMİSYENI" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="DERS_BLOCK" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DERS_SINIF_KOD" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="T_KEY" Relationship="Self.FK__T_KEY__DERS_KODU__182C9B23" FromRole="T_DERS" ToRole="T_KEY" />
+        </EntityType>
+        <EntityType Name="T_KEY">
+          <Key>
+            <PropertyRef Name="Num" />
+          </Key>
+          <Property Name="Num" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OGR_OKULNU" Type="Int64" />
+          <Property Name="DERS_KODU" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="T_DERS" Relationship="Self.FK__T_KEY__DERS_KODU__182C9B23" FromRole="T_KEY" ToRole="T_DERS" />
+          <NavigationProperty Name="T_OGR" Relationship="Self.FK__T_KEY__OGR_OKULN__173876EA" FromRole="T_KEY" ToRole="T_OGR" />
+        </EntityType>
+        <EntityType Name="T_OGR">
+          <Key>
+            <PropertyRef Name="OGR_TC" />
+          </Key>
+          <Property Name="OGR_TC" Type="Int64" Nullable="false" />
+          <Property Name="OGR_OKULNU" Type="Int64" Nullable="false" />
+          <Property Name="OGR_ISIM" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="OGR_DOGUMT" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="OGR_BOLUM" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="OGR_FAKULTE" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="OGR_CINSIYET" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="T_KEY" Relationship="Self.FK__T_KEY__OGR_OKULN__173876EA" FromRole="T_OGR" ToRole="T_KEY" />
+        </EntityType>
+        <Association Name="FK__T_KEY__DERS_KODU__182C9B23">
+          <End Role="T_DERS" Type="Self.T_DERS" Multiplicity="0..1" />
+          <End Role="T_KEY" Type="Self.T_KEY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_DERS">
+              <PropertyRef Name="DERS_KODU" />
+            </Principal>
+            <Dependent Role="T_KEY">
+              <PropertyRef Name="DERS_KODU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__T_KEY__OGR_OKULN__173876EA">
+          <End Role="T_OGR" Type="Self.T_OGR" Multiplicity="0..1" />
+          <End Role="T_KEY" Type="Self.T_KEY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_OGR">
+              <PropertyRef Name="OGR_TC" />
+            </Principal>
+            <Dependent Role="T_KEY">
+              <PropertyRef Name="OGR_OKULNU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBOBISEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_DERS" EntityType="Self.T_DERS" />
+          <EntitySet Name="T_KEY" EntityType="Self.T_KEY" />
+          <EntitySet Name="T_OGR" EntityType="Self.T_OGR" />
+          <AssociationSet Name="FK__T_KEY__DERS_KODU__182C9B23" Association="Self.FK__T_KEY__DERS_KODU__182C9B23">
+            <End Role="T_DERS" EntitySet="T_DERS" />
+            <End Role="T_KEY" EntitySet="T_KEY" />
+          </AssociationSet>
+          <AssociationSet Name="FK__T_KEY__OGR_OKULN__173876EA" Association="Self.FK__T_KEY__OGR_OKULN__173876EA">
+            <End Role="T_OGR" EntitySet="T_OGR" />
+            <End Role="T_KEY" EntitySet="T_KEY" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBOBISModelStoreContainer" CdmEntityContainer="DBOBISEntities">
+          <EntitySetMapping Name="T_DERS">
+            <EntityTypeMapping TypeName="DBOBISModel.T_DERS">
+              <MappingFragment StoreEntitySet="T_DERS">
+                <ScalarProperty Name="DERS_KODU" ColumnName="DERS_KODU" />
+                <ScalarProperty Name="DERS_ISMI" ColumnName="DERS_ISMI" />
+                <ScalarProperty Name="DERS_AKADEMİSYENI" ColumnName="DERS_AKADEMİSYENI" />
+                <ScalarProperty Name="DERS_BLOCK" ColumnName="DERS_BLOCK" />
+                <ScalarProperty Name="DERS_SINIF_KOD" ColumnName="DERS_SINIF_KOD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_KEY">
+            <EntityTypeMapping TypeName="DBOBISModel.T_KEY">
+              <MappingFragment StoreEntitySet="T_KEY">
+                <ScalarProperty Name="Num" ColumnName="Num" />
+                <ScalarProperty Name="OGR_OKULNU" ColumnName="OGR_OKULNU" />
+                <ScalarProperty Name="DERS_KODU" ColumnName="DERS_KODU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_OGR">
+            <EntityTypeMapping TypeName="DBOBISModel.T_OGR">
+              <MappingFragment StoreEntitySet="T_OGR">
+                <ScalarProperty Name="OGR_TC" ColumnName="OGR_TC" />
+                <ScalarProperty Name="OGR_OKULNU" ColumnName="OGR_OKULNU" />
+                <ScalarProperty Name="OGR_ISIM" ColumnName="OGR_ISIM" />
+                <ScalarProperty Name="OGR_DOGUMT" ColumnName="OGR_DOGUMT" />
+                <ScalarProperty Name="OGR_BOLUM" ColumnName="OGR_BOLUM" />
+                <ScalarProperty Name="OGR_FAKULTE" ColumnName="OGR_FAKULTE" />
+                <ScalarProperty Name="OGR_CINSIYET" ColumnName="OGR_CINSIYET" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

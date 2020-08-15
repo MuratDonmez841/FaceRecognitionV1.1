@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{34709DCD-94D2-490B-BF39-2E8211C06C93}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FaceRecognition</RootNamespace>
+    <AssemblyName>FaceRecognition</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Emgu.CV">
+      <HintPath>..\..\..\..\..\..\Emgu3\emgucv-windows-universal 2.4.10.1940\bin\Emgu.CV.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.GPU">
+      <HintPath>..\..\..\..\..\..\Emgu3\emgucv-windows-universal 2.4.10.1940\bin\Emgu.CV.GPU.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.ML">
+      <HintPath>..\..\..\..\..\..\Emgu3\emgucv-windows-universal 2.4.10.1940\bin\Emgu.CV.ML.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.OCR">
+      <HintPath>..\..\..\..\..\..\Emgu3\emgucv-windows-universal 2.4.10.1940\bin\Emgu.CV.OCR.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.OpenCL">
+      <HintPath>..\..\..\..\..\..\Emgu3\emgucv-windows-universal 2.4.10.1940\bin\Emgu.CV.OpenCL.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.Stitching">
+      <HintPath>..\..\..\..\..\..\Emgu3\emgucv-windows-universal 2.4.10.1940\bin\Emgu.CV.Stitching.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI">
+      <HintPath>..\..\..\..\..\..\Emgu3\emgucv-windows-universal 2.4.10.1940\bin\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.VideoStab">
+      <HintPath>..\..\..\..\..\..\Emgu3\emgucv-windows-universal 2.4.10.1940\bin\Emgu.CV.VideoStab.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.Util">
+      <HintPath>..\..\..\..\..\..\Emgu3\emgucv-windows-universal 2.4.10.1940\bin\Emgu.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\BusinessRecognition.cs" />
+    <Compile Include="Classes\Classifier_Train.cs" />
+    <Compile Include="Classes\Services.cs" />
+    <Compile Include="Model\Model_OBIS.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_OBIS.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model_OBIS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_OBIS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Model_OBIS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_OBIS.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\T_DERS.cs">
+      <DependentUpon>Model_OBIS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\T_KEY.cs">
+      <DependentUpon>Model_OBIS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\T_OGR.cs">
+      <DependentUpon>Model_OBIS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BreakPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\BreakPage.Designer.cs">
+      <DependentUpon>BreakPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CourseOperations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\CourseOperations.Designer.cs">
+      <DependentUpon>CourseOperations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\MainPage.Designer.cs">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OgrKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\OgrKayit.Designer.cs">
+      <DependentUpon>OgrKayit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\YokalmaSistemi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\YokalmaSistemi.Designer.cs">
+      <DependentUpon>YokalmaSistemi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Pages\BreakPage.resx">
+      <DependentUpon>BreakPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\CourseOperations.resx">
+      <DependentUpon>CourseOperations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\MainPage.resx">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\OgrKayit.resx">
+      <DependentUpon>OgrKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\YokalmaSistemi.resx">
+      <DependentUpon>YokalmaSistemi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EntityDeploy Include="Model\Model_OBIS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model_OBIS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\Model_OBIS.edmx.diagram">
+      <DependentUpon>Model_OBIS.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="cvextern.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="haarcascade_frontalface_default.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Model\Model_OBIS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model_OBIS.Context.cs</LastGenOutput>
+      <DependentUpon>Model_OBIS.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\Model_OBIS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_OBIS.edmx</DependentUpon>
+      <LastGenOutput>Model_OBIS.cs</LastGenOutput>
+    </Content>
+    <Content Include="OpenCL.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_calib3d2410.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_contrib2410.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_core2410.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_features2d2410.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_flann2410.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_gpu2410.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_highgui2410.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_imgproc2410.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_legacy2410.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_ml2410.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_nonfree2410.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_objdetect2410.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_photo2410.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_stitching2410.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_superres2410.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_video2410.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="opencv_videostab2410.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
